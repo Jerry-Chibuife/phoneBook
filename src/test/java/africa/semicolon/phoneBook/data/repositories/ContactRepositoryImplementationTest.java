@@ -84,6 +84,7 @@ class ContactRepositoryImplementationTest {
         Contact savedContact = contactRepository.getContactByLastName("Uzuegbunam");
         List<String> mobiles = savedContact.getMobile();
         assertEquals("08142194364", mobiles.get(0));
+//        System.out.println(savedContact.getID());
     }
 
     @Test
