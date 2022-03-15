@@ -8,6 +8,7 @@ import africa.semicolon.phoneBook.exceptions.NullFieldsException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ContactRepositoryImplementation implements ContactRepository{
 
@@ -20,6 +21,9 @@ public class ContactRepositoryImplementation implements ContactRepository{
             throw new NullFieldsException("Your mobile and office number fields cannot both be empty");
         if(contact.getLastName() == null && contact.getFirstName() == null && contact.getMiddleName() == null)
             throw new NullFieldsException("At least one name should be tied to this new contact");
+        if(contact.getID() == null) {
+            contact.setID(UUID.randomUUID().toString());
+        }
         storage.add(contact);
     }
 
